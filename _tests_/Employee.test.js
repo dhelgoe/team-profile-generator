@@ -3,7 +3,7 @@ const Employee = require("../lib/Employee");
 
 test("can we set a name", () => {
     const name = "Bob";
-    const emp = new Employee(name) //email, 12)
+    const emp = new Employee(name) 
     expect(emp.name).toBe('Bob')
 });
 
@@ -19,5 +19,5 @@ test("can we set an email", () => {
     expect(emp.email).toBe('derek@gmail.com')
 });
 
-//test id/emails similar
+
 

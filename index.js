@@ -8,7 +8,7 @@ const fs = require('fs')
 
 //manager
 inquirer
-    .prompt(
+    .prompt([
         {
             type: 'input',
             name: 'Managers name',
@@ -29,10 +29,10 @@ inquirer
             name: 'officenumber',
             message: 'What is the office number of the team manager?',
         }
-);
+    ]);
 //engineer
 inquirer
-    .prompt(
+    .prompt([
         //{
             //type: 'list',
             //name: 'role',
@@ -60,10 +60,10 @@ inquirer
             name: 'github',
             message: "Enter the employee's github username",
         }
-    )
+    ])
     //intern
     inquirer
-    .prompt(
+    .prompt([
         //{
             //type: 'list',
             //name: 'role',
@@ -90,32 +90,13 @@ inquirer
             name: 'school',
             message: "Enter the Intern's school",
         }
-    )
+    ])
 
-    function writeToFile(fileName, data) {
-        fs.writeFile(fileName, data, (err) => {
-            err ? console.log(err): console.log('Finished')
-        }) 
-    }
+    .then((data) => {
+
+        html(data)
     
-    function init() {
-        inquirer.prompt(questions).then(data=>{
-            console.log(data)
-       console.log (markdown(data))
-       writeToFile('index.html', markdown(data) )
-    
-            
-    
-    })
-    
-    }
-    
-    init();
-        //.then function (answers)
-    //Do you want to add an employee y or n
-    //if yes then choices manager, enger, intern
-    // if answers = intern then call intern promt
-    //function intern prompt
-    // new intern (answer.name) answer.email
-    //team.push (whatever variable is for intern)
-    // call function (employee fiuncton)
+        fs.writeFile('index.html', JSON.stringify(data, null, '\t'), (err) => err ?
+        console.log(err) : console.log ('success!')
+        );
+      });
