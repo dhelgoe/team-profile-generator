@@ -1,5 +1,9 @@
 const inquirer = require('inquirer');
-
+const team = [];
+const Manager = require('./lib/Manager')
+const Intern = require('./lib/Intern')
+const Engineer = require('./lib/Engineer')
+const fs = require('fs')
 
 
 //manager
@@ -87,3 +91,31 @@ inquirer
             message: "Enter the Intern's school",
         }
     )
+
+    function writeToFile(fileName, data) {
+        fs.writeFile(fileName, data, (err) => {
+            err ? console.log(err): console.log('Finished')
+        }) 
+    }
+    
+    function init() {
+        inquirer.prompt(questions).then(data=>{
+            console.log(data)
+       console.log (markdown(data))
+       writeToFile('index.html', markdown(data) )
+    
+            
+    
+    })
+    
+    }
+    
+    init();
+        //.then function (answers)
+    //Do you want to add an employee y or n
+    //if yes then choices manager, enger, intern
+    // if answers = intern then call intern promt
+    //function intern prompt
+    // new intern (answer.name) answer.email
+    //team.push (whatever variable is for intern)
+    // call function (employee fiuncton)
