@@ -1,0 +1,5 @@
+I created all the classes for Employee, Engineer, Intern, and Manager.
+I created the tests for each of those classes.
+The tests are not working as of right now, as I will have to look into that.
+The html is also not working as there are issues with my prompt questions and the way it's set up.
+I have the right inqueiry set up with my package-lock.json is all right.
